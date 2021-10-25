@@ -22,7 +22,7 @@ const fans = {
             } else {
                 window.alert('Fan name is empty');
             }
-            fanName="";
+            this.name="";
             this.fanCount++;
         }
     }
