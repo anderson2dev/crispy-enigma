@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Non Vue App</title>
+        <script src="https://unpkg.com/vue@next"></script>
+
+        <!-- 
+            Você importaria seu arquivo vue.js aqui
+            exemplo: <script src='vue_app.js'></script> 
+        -->
+
+    </head>
+    <body>
+        <!-- Monte seu app vue nessa div -->
+        <div id="fans">
+            <img :src="vueLogo" width="40" height="40 " />
+            <!-- 
+                Apresente a logo do vue, disponível em
+                https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg
+             -->
+            <!-- 
+                Apresente num <h2> o número de fãs do vue
+                ou apresente "não há fãs do vue" se não
+                houver nenhum fã.
+            -->
+            <h2 v-if="vueFans.length > 0">
+                Vue fãs: {{fanCount}}
+            </h2>
+
+            <h2 v-else>
+                Não há fãs do vue
+            </h2>
+            <!-- 
+                Liste, sem nenhuma ordem específica, 
+                os fãs do vue 
+            -->
+            <div id="fans-data">
+                <h2>Fãs de vue</h2>
+                <ul>
+                    <li v-for="fans in vueFans"> {{ fans.name}}</li>
+                </ul>
+            </div>
+            <!-- 
+                Adicione um campo de entrada no qual 
+                o nome de um novo fã pode ser escrito
+             -->
+            <input 
+                placeholder="Digite o nome do fan"
+                type="text"
+                id="name"
+                v-model="name" 
+            />
+            <button @click="addFan">
+                Add fan
+            </button>
+            <!-- 
+                Crie um botão que chame o método que adiciona o
+                nome do fã escrito na caixa de texto 
+            -->
+        </div>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
